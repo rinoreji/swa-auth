@@ -23,3 +23,7 @@ tasks:
 ports:
   - port: 4200
     onOpen: open-preview
+
+vscode:
+  extensions:
+    - muhammad-sammy.csharp
