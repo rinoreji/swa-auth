@@ -1,12 +1,14 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - name: setup angular
+  - name: setup angular project
     before: |
-      npm install -g npm
-      cd angular-app
+      npm install -g @azure/static-web-apps-cli
     init: |  # runs during prebuild
+      cd angular-app
       npm i
-    command: npm start
+    command: |
+      swa start http://localhost:4200 --api-location api
+
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
