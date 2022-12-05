@@ -5,9 +5,6 @@ RUN mkdir -p /home/gitpod/dotnet && curl -fsSL https://dot.net/v1/dotnet-install
 ENV DOTNET_ROOT=/home/gitpod/dotnet
 ENV PATH=/home/gitpod/dotnet:$PATH
 
-RUN chmod +x /home/gitpod/.bashrc.d/110-dotnet
-
-
 RUN npm install -g npm@latest
 
 RUN npm i -g azure-functions-core-tools@4 --unsafe-perm true
