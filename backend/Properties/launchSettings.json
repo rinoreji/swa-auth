@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "api": {
+    "backend": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7114",
+      "commandLineArgs": "--port 7049",
       "launchBrowser": false
     }
   }

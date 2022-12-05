@@ -22,4 +22,4 @@ RUN curl -fsSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --install-
 
 # RUN npm install -g npm@latest
 
-RUN npm i -g @azure/static-web-apps-cli azure-functions-core-tools@4 --unsafe-perm true 
+RUN npm i -g @azure/static-web-apps-cli azure-functions-core-tools@4

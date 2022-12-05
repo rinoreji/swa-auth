@@ -17,7 +17,7 @@ tasks:
     #  npm install -g @azure/static-web-apps-cli
     #start development server etc
     command: | 
-      swa start http://localhost:4200 --api-location api
+      swa start http://localhost:4200 --api-location backend
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
