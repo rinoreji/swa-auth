@@ -8,9 +8,9 @@ tasks:
     init: | 
       cd angular-app
       npm i
-      npm start
     #start development server etc
     command: | 
+      npm start
       swa start http://localhost:4200 --api-location api
 
 
