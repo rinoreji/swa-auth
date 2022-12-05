@@ -1,0 +1,14 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: setup angular
+    before: |
+      npm install -g npm
+      cd angular-app
+    init: |  # runs during prebuild
+      npm i
+    command: npm start
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 4200
+    onOpen: open-preview
