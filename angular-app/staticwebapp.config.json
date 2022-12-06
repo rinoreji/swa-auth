@@ -1,4 +1,14 @@
 {
+  "routes": [
+    {
+      "route": "/api/products",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/api/products/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": ["*.{css,scss,js,png,gif,ico,jpg,svg}"]
