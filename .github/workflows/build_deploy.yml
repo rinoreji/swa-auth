@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy dotnet core project to Azure Function App - productsapi
+name: Azure Functions CI/CD
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
           dotnet build --configuration Release --output ./output
           popd
 
-      - name: 'Run Azure Functions Action'
+      - name: 'Build And Deploy Backend (az-fn)'
         uses: Azure/functions-action@v1
         id: fa
         with:
@@ -40,3 +40,17 @@ jobs:
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_687F298FCAC2460D85D8790158769BDC }}
+
+      - name: 'Build And Deploy UI (swa)'
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LEMON_HILL_0E8B9990F }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/angular-app" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "dist/angular-app" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
