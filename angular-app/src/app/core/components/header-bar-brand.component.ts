@@ -13,9 +13,9 @@ import { Component } from '@angular/core';
         <i class="fab js-logo fa-angular fa-2x" aria-hidden="true"></i>
       </a>
       <a class="navbar-item nav-home" router-link="/">
-        <span class="brand-first">MY</span>
-        <span class="brand-second">SHOPPING</span>
-        <span class="brand-third">LIST</span>
+        <span class="brand-first">NG</span>
+        <span class="brand-second">-SWA-</span>
+        <span class="brand-third"> POC </span>
       </a>
     </div>
   `,

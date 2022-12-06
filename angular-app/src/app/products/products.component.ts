@@ -1,7 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Product } from '../core';
 import { ProductService } from './product.service';
+
+const root = environment.API || 'api';
 
 @Component({
   selector: 'app-products',
@@ -48,7 +52,7 @@ export class ProductsComponent implements OnInit {
   productToDelete: Product;
   showModal = false;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private http: HttpClient) {
     this.products$ = productService.entities$;
   }
 
@@ -98,6 +102,9 @@ export class ProductsComponent implements OnInit {
       },
       (error: any) => (this.errorMessage = 'Unauthorized'),
     );
+    
+    this.http.get(`${root}/test/`).subscribe(x=> console.log(x));
+    
     this.clear();
   }
 
