@@ -9,7 +9,7 @@ tasks:
       npm i
     #start development server etc
     command: | 
-      npm start
+      cd angular-app && npm start
 
   - name: setup function app
     #install global project dependencies.

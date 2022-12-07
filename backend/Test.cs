@@ -21,7 +21,7 @@ namespace backend
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
             ClaimsPrincipal identities = req.HttpContext.User;
-            var obj = JsonConvert.SerializeObject(new { identities.Claims, identities.Identities, identities.Identity }, Formatting.Indented,
+            var obj = JsonConvert.SerializeObject(new { claims=identities.Claims.Select(c=> new { c.Type, c.Value, c.Issuer, c.Subject }), identities.Identities, identities.Identity }, Formatting.Indented,
             new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
